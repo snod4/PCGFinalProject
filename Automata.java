@@ -24,8 +24,8 @@ public class Automata {
             throw new Error("Cell Size does not divide evenly into image dimensions");
         }
 
-        previousCells = new Cell[imgHeight][imgWidth];
-        newCells = new Cell[imgHeight][imgWidth];
+        previousCells = new Cell[imgHeight/cellSize][imgWidth/cellSize];
+        newCells = new Cell[imgHeight/cellSize][imgWidth/cellSize];
         this.imgWidth = imgWidth;
         this.imgHeight = imgHeight;
         this.cellSize = cellSize;
@@ -40,7 +40,7 @@ public class Automata {
         }
 
         previousCells = new Cell[imgHeight/cellSize][imgWidth/cellSize];
-        newCells = new Cell[imgHeight][imgWidth];
+        newCells = new Cell[imgHeight/cellSize][imgWidth/cellSize];
         this.imgWidth = imgWidth;
         this.imgHeight = imgHeight;
         this.cellSize = cellSize;
@@ -51,13 +51,14 @@ public class Automata {
         Random rand = new Random(2);
         for(int r = 0; r < previousCells.length; r++){
             for(int c = 0; c < previousCells[r].length; c++){
-                newCells[r][c] = new Cell(Cell.EMPTY);
+                
 
                 int probabiltiy = rand.nextInt(solidChance + floorChance + emptyChance + 1);
                 System.out.println(probabiltiy);
                 //draws solid border around image
                 if(r == 0 || c == 0 || r == previousCells.length-1 || c == previousCells[r].length - 1){
                     previousCells[r][c] = new Cell(Cell.SOLID);
+                    newCells[r][c] = new Cell(Cell.SOLID);
                 }
                 //initalizes each cell to a wall, floor, or empty space 
                 else if(solidChance + floorChance + emptyChance > 10){
@@ -65,12 +66,15 @@ public class Automata {
                 }
                else if(probabiltiy <= solidChance){
                     previousCells[r][c] = new Cell(Cell.SOLID);
+                    newCells[r][c] = new Cell(Cell.SOLID);
                 }
                  else if(probabiltiy > solidChance && probabiltiy <= solidChance + floorChance){
                     previousCells[r][c] = new Cell(Cell.FLOOR);
+                    newCells[r][c] = new Cell(Cell.FLOOR);
                  }
                 else if(probabiltiy > solidChance + floorChance && probabiltiy <= solidChance + floorChance + emptyChance){
                     previousCells[r][c] = new Cell(Cell.EMPTY);
+                    newCells[r][c] = new Cell(Cell.EMPTY);
                 }
                 else{
                     System.out.println("Error " + probabiltiy);
@@ -112,7 +116,7 @@ public class Automata {
                  imgRow = cellSize * (cells.length - r - 1); //accounts for Utility class flipping of row variable
                  imgCol = cellSize * c;
                 if(cells[r][c].isModified()){
-                    System.out.println("This cell at (" + r + ", " + c + ") was modified to " + previousCells[r][c].getType());
+                    System.out.println("This cell at (" + r + ", " + c + ") was modified to " + cells[r][c].getType());
                 }
                 if(cells[r][c].isType(Cell.SOLID)){
                     System.out.println("This cell at (" + r + ", " + c + ") was colored black");
