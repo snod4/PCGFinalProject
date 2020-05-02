@@ -48,7 +48,7 @@ public class Automata {
     }
 
     public void initialize(int solidChance, int floorChance, int emptyChance){
-        Random rand = new Random(2);
+        Random rand = new Random(3);
         for(int r = 0; r < previousCells.length; r++){
             for(int c = 0; c < previousCells[r].length; c++){
                 
@@ -132,13 +132,15 @@ public class Automata {
                 
             }
         }
-        if(name.equals("testingImg")){
-            System.out.println("Placing test square at previousCells (" + r + ", " + c + ") at image Location  (" + imgRow + "," + imgCol + ")");
-        Utility.DrawFilledRect(img, imgCol, imgRow, cellSize, cellSize, Color.GREEN);
-        }
-      //  Random rand = new Random(System.currentTimeMillis());
-      //  Utility.SaveImage(img, ".\\Images\\"+Integer.toString(rand.nextInt()) + ".png");
+        // if(name.equals("testingImg")){
+        //     System.out.println("Placing test square at previousCells (" + r + ", " + c + ") at image Location  (" + imgRow + "," + imgCol + ")");
+        // Utility.DrawFilledRect(img, imgCol, imgRow, cellSize, cellSize, Color.GREEN);
+        // }
+        Random rand = new Random(System.currentTimeMillis());
+        Utility.SaveImage(img, ".\\Images\\"+Integer.toString(rand.nextInt()) + ".png");
+
       Utility.SaveImage(img, ".\\Images\\" + name + ".png");
+      System.out.println("Finished");
     }
 
     

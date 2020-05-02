@@ -12,6 +12,8 @@ public class TypeCount extends Type {
     }
 
     public boolean compare(int val){
+
+       //System.out.println("Is " + val + " " + booleanOp + " " + this.count + "?");
         if (booleanOp.equals("==")) {
             return val == this.count;
         } else if (booleanOp.equals("<")) {

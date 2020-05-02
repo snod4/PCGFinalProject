@@ -6,6 +6,7 @@ public class Cell {
     public static final int SOLID = 0;
     public static final int FLOOR = 1;
     public static final int EMPTY = 2;
+    public static final int NO_TYPE = 4;
 
     private int type;
     private boolean modified = false;
