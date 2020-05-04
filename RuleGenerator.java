@@ -49,7 +49,7 @@ public class RuleGenerator {
                 //starts the terminal input
                 System.out.println("[Input rule parts in order of priority staring with the highest priority, press enter when done with a priority level]\n");
                 //Loop for differing priority of rule parts 
-                //Example (SOLID == 2 && EMPTY > 3) || FLOOR > 2 -- (SOLID == 2 && EMPTY > 3) is highest priority
+                //Example (SOLID == 2 && EMPTY > 3) || FLOOR > 2 -- FLOOR > 2 is highest priority
                 Outerloop:
                 for(int i = 0; i < andSet.length; i++){
                     //Gets termnial input
