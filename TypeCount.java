@@ -1,8 +1,10 @@
-
+/**
+ * Contains information of a counting rule
+ */
 public class TypeCount extends Type {
 
-    private int count;
-    String booleanOp;
+    private int count; 
+    String booleanOp; //comparator for count
 
     public TypeCount(int type, int count, String booleanOp) {
         super(type, false);
@@ -10,7 +12,12 @@ public class TypeCount extends Type {
         this.booleanOp = booleanOp;
 
     }
-
+    
+    /**
+     * compares val to this.count
+     * @param val, an integer
+     * @return true if the comparison is true, otherwise false
+     */
     public boolean compare(int val){
 
        //System.out.println("Is " + val + " " + booleanOp + " " + this.count + "?");
@@ -36,6 +43,10 @@ public class TypeCount extends Type {
         }
     }
 
+    /**
+     * gets count
+     * @return count, an integer
+     */
     public int getCount(){
         return this.count;
     }
