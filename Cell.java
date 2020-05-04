@@ -62,7 +62,6 @@ public class Cell {
             if((temp = rules.get(i).applyRule(relativeCells)) != Rule.RULE_FAILED){
              //   System.out.println("Applying Result (" + row + ", " + col + ") with value: " + temp);
                 newCells[row][col].type = temp;
-                System.out.println("New Cells at " + row + "," + col + " modified to " + temp);
                 newCells[row][col].modified = true;
                 this.modified = true;
             }

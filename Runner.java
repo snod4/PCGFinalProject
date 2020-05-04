@@ -8,7 +8,7 @@ public class Runner {
     
     public static void main(String args[]){
 
-        BufferedImage img = new BufferedImage(500,500, BufferedImage.TYPE_INT_RGB);
+        BufferedImage img = new BufferedImage(1000,1000, BufferedImage.TYPE_INT_RGB);
     //     Utility.fillImage(img, Color.GREEN);
     //     ArrayList<Type>[] andSet = new ArrayList[5];
     //     ArrayList<Type>[] orSet = new ArrayList[5];
@@ -48,7 +48,7 @@ public class Runner {
         //Made rule creation textual to eliminate some complication on user end
         Automata firstTest = new Automata(img.getWidth(), img.getHeight(), 20, RuleGenerator.getStringInput());
         firstTest.initialize(2, 0, 8);
-        firstTest.evaluateAutomata(1);
+        firstTest.evaluateAutomata(2);
        // firstTest.applyEvaluationToImage();
        // Utility.SaveImage(img, ".\\Images\\Testing123.png");
     

@@ -54,7 +54,7 @@ public class Automata {
      * @param emptyChance - chance for empty cell to be generated
      */
     public void initialize(int solidChance, int floorChance, int emptyChance) {
-        Random rand = new Random(System.currentTimeMillis());
+        Random rand = new Random(3);
         // goes through cells
         for (int r = 0; r < previousCells.length; r++) {
             for (int c = 0; c < previousCells[r].length; c++) {
